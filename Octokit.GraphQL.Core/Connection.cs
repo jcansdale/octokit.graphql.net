@@ -17,7 +17,6 @@ namespace Octokit.GraphQL
     {
         private readonly string[] DefaultMediaTypes = new[]
         {
-            "application/vnd.github.antiope-preview+json",
             "application/vnd.github.package-deletes-preview+json"
         };
 
