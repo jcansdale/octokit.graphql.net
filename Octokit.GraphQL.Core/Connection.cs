@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -13,7 +15,7 @@ namespace Octokit.GraphQL
     /// </summary>
     public class Connection : IConnection
     {
-        private const string DefaultMediaType = "application/vnd.github.antiope-preview+json";
+        private readonly string[] DefaultMediaTypes = new[] { "application/vnd.github.antiope-preview+json" };
 
         /// <summary>
         /// Gets the address of the GitHub GraphQL API.
@@ -169,7 +171,7 @@ namespace Octokit.GraphQL
                 throw new ArgumentException("The base address for the connection must be an absolute URI.", nameof(uri));
             }
 
-            Accept = new MediaTypeWithQualityHeaderValue(DefaultMediaType);
+            Accepts = DefaultMediaTypes.Select(t => new MediaTypeWithQualityHeaderValue(t)).ToList();
             UserAgent = new ProductInfoHeaderValue(productInformation.Name, productInformation.Version);
         }
 
@@ -189,7 +191,7 @@ namespace Octokit.GraphQL
         /// <summary>
         /// Gets the Accept value for the connection.
         /// </summary>
-        private MediaTypeWithQualityHeaderValue Accept { get; }
+        private IList<MediaTypeWithQualityHeaderValue> Accepts { get; }
 
         /// <summary>
         /// Gets the User Agent value for the connection.
@@ -223,7 +225,12 @@ namespace Octokit.GraphQL
             try
             {
                 request.Headers.Authorization = new AuthenticationHeaderValue("bearer", token);
-                request.Headers.Accept.Add(Accept);
+
+                foreach (var accept in Accepts)
+                {
+                    request.Headers.Accept.Add(accept);
+                }
+
                 request.Headers.UserAgent.Add(UserAgent);
 
                 request.Content = new StringContent(query, Encoding.UTF8);
