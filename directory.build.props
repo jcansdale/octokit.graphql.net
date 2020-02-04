@@ -1,6 +1,6 @@
 <Project>
  <PropertyGroup>
-   <Version>0.1.4-preview-package-deletes</Version>
+   <Version>0.1.4-packages-preview</Version>
    <VersionSuffix>beta</VersionSuffix>
    <RepositoryUrl>https://github.com/jcansdale/octokit.graphql.net</RepositoryUrl>
  </PropertyGroup>
