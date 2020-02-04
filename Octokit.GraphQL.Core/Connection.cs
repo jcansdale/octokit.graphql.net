@@ -15,7 +15,11 @@ namespace Octokit.GraphQL
     /// </summary>
     public class Connection : IConnection
     {
-        private readonly string[] DefaultMediaTypes = new[] { "application/vnd.github.antiope-preview+json" };
+        private readonly string[] DefaultMediaTypes = new[]
+        {
+            "application/vnd.github.antiope-preview+json",
+            "application/vnd.github.package-deletes-preview+json"
+        };
 
         /// <summary>
         /// Gets the address of the GitHub GraphQL API.

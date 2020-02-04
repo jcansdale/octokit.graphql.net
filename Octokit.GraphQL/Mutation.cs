@@ -196,6 +196,11 @@ namespace Octokit.GraphQL
         public DeleteIssueCommentPayload DeleteIssueComment(Arg<DeleteIssueCommentInput> input) => this.CreateMethodCall(x => x.DeleteIssueComment(input), Octokit.GraphQL.Model.DeleteIssueCommentPayload.Create);
 
         /// <summary>
+        /// Delete a package version.
+        /// </summary>
+        public DeletePackageVersionPayload DeletePackageVersion(Arg<DeletePackageVersionInput> input) => this.CreateMethodCall(x => x.DeletePackageVersion(input), Octokit.GraphQL.Model.DeletePackageVersionPayload.Create);
+
+        /// <summary>
         /// Deletes a project.
         /// </summary>
         public DeleteProjectPayload DeleteProject(Arg<DeleteProjectInput> input) => this.CreateMethodCall(x => x.DeleteProject(input), Octokit.GraphQL.Model.DeleteProjectPayload.Create);

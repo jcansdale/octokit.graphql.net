@@ -16,6 +16,12 @@ namespace Octokit.GraphQL.Model
         }
 
         /// <summary>
+        /// Whether or not this version has been deleted.
+        /// </summary>
+        [Obsolete(@"Renaming GitHub Packages fields and objects. Use the `PackageVersion` object instead. Removal on 2020-04-01 UTC.")]
+        public bool Deleted { get; }
+
+        /// <summary>
         /// list of dependencies for this package
         /// </summary>
         /// <param name="first">Returns the first _n_ elements from the list.</param>
