@@ -322,6 +322,18 @@ namespace Octokit.GraphQL.Model
         public IRepositoryOwner Owner => this.CreateProperty(x => x.Owner, Octokit.GraphQL.Model.Internal.StubIRepositoryOwner.Create);
 
         /// <summary>
+        /// A list of packages under the owner.
+        /// </summary>
+        /// <param name="first">Returns the first _n_ elements from the list.</param>
+        /// <param name="after">Returns the elements in the list that come after the specified cursor.</param>
+        /// <param name="last">Returns the last _n_ elements from the list.</param>
+        /// <param name="before">Returns the elements in the list that come before the specified cursor.</param>
+        /// <param name="names">Find packages by their names.</param>
+        /// <param name="orderBy">Ordering of the returned packages.</param>
+        /// <param name="repositoryId">Find packages in a repository by ID.</param>
+        public PackageConnection Packages(Arg<int>? first = null, Arg<string>? after = null, Arg<int>? last = null, Arg<string>? before = null, Arg<IEnumerable<string>>? names = null, Arg<PackageOrder>? orderBy = null, Arg<ID>? repositoryId = null) => this.CreateMethodCall(x => x.Packages(first, after, last, before, names, orderBy, repositoryId), Octokit.GraphQL.Model.PackageConnection.Create);
+
+        /// <summary>
         /// The repository parent, if this is a fork.
         /// </summary>
         public Repository Parent => this.CreateProperty(x => x.Parent, Octokit.GraphQL.Model.Repository.Create);
