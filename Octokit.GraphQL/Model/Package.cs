@@ -28,6 +28,11 @@ namespace Octokit.GraphQL.Model
         public string Name { get; }
 
         /// <summary>
+        /// Identifies the type of the package.
+        /// </summary>
+        public PackageType PackageType { get; }
+
+        /// <summary>
         /// The repository this package belongs to.
         /// </summary>
         public Repository Repository => this.CreateProperty(x => x.Repository, Octokit.GraphQL.Model.Repository.Create);

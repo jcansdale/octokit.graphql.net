@@ -186,6 +186,11 @@ namespace Octokit.GraphQL
         public DeleteBranchProtectionRulePayload DeleteBranchProtectionRule(Arg<DeleteBranchProtectionRuleInput> input) => this.CreateMethodCall(x => x.DeleteBranchProtectionRule(input), Octokit.GraphQL.Model.DeleteBranchProtectionRulePayload.Create);
 
         /// <summary>
+        /// Deletes a deployment.
+        /// </summary>
+        public DeleteDeploymentPayload DeleteDeployment(Arg<DeleteDeploymentInput> input) => this.CreateMethodCall(x => x.DeleteDeployment(input), Octokit.GraphQL.Model.DeleteDeploymentPayload.Create);
+
+        /// <summary>
         /// Deletes an Issue object.
         /// </summary>
         public DeleteIssuePayload DeleteIssue(Arg<DeleteIssueInput> input) => this.CreateMethodCall(x => x.DeleteIssue(input), Octokit.GraphQL.Model.DeleteIssuePayload.Create);
